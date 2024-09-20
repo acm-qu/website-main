@@ -25,3 +25,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.main-page {
+  background: linear-gradient(180deg, #134150, #2f3030);
+}
