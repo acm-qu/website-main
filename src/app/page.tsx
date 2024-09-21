@@ -1,6 +1,8 @@
+"use client";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
 	return (
@@ -11,7 +13,12 @@ export default function Home() {
 				<title>ACM-QU - Home</title>
 			</Head>
 
-			<header className="bg-black text-white py-4 px-6 flex justify-between items-center">
+			<motion.header
+				initial={{ opacity: 0, y: -50 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8 }}
+				className="bg-black text-white py-4 px-6 flex justify-between items-center"
+			>
 				<div className="logo">
 					<Link href="#about">
 						<Image
@@ -28,22 +35,34 @@ export default function Home() {
 					<Link href="#events">Events</Link>
 					<Link href="#team">Team</Link>
 					<Link href="#contact">Contact</Link>
-					<Link href="#gallery">Gallery</Link>
 				</nav>
 				<div>
 					<Link href="#signup" className="py-2 px-4 rounded-md">
 						Sign Up →
 					</Link>
 				</div>
-			</header>
+			</motion.header>
 
-			<main>
+			<motion.main
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 1 }}
+			>
 				<section id="about" className="main-page min-h-[700px]">
 					<div className="flex">
-						<h1 className="text-5xl font-bold mt-52 ml-24 w-1/2">
+						<motion.h1
+							initial={{ x: -100, opacity: 0 }}
+							animate={{ x: 0, opacity: 1 }}
+							transition={{ duration: 1.2 }}
+							className="text-5xl font-bold mt-52 ml-24 w-1/2"
+						>
 							ASSOCIATION FOR COMPUTING MACHINERY, QATAR UNIVERSITY CHAPTER
-						</h1>
-						<div>
+						</motion.h1>
+						<motion.div
+							initial={{ opacity: 0, scale: 0.8 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 1.2, delay: 0.5 }}
+						>
 							<Image
 								src="/images/img.png"
 								alt="Logo"
@@ -51,16 +70,24 @@ export default function Home() {
 								height={600}
 								className="mr-10"
 							/>
-						</div>
+						</motion.div>
 					</div>
-					<p className="ml-24 -mt-40 text-xl">
+					<motion.p
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 1.4, delay: 0.8 }}
+						className="ml-24 -mt-40 text-xl"
+					>
 						Connecting students with the latest in technology and innovation.
-					</p>
+					</motion.p>
 				</section>
 
-				<section
+				<motion.section
 					id="mission"
 					className="bg-primary min-h-screen px-10 py-10 items-center"
+					initial={{ opacity: 0, y: 50 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1.2 }}
 				>
 					<h1 className="text-5xl font-bold mt-40 ml-20">MISSION</h1>
 					<div className="flex items-center space-x-8">
@@ -78,102 +105,120 @@ export default function Home() {
 							className="object-contain"
 						/>
 					</div>
-				</section>
+				</motion.section>
 
-				<section
+				<motion.section
 					id="events"
-					className="bg-primary min-h-screen py-10 text-white					{/* Upcoming Events Section */}
-"
+					className="bg-primary min-h-screen py-10 text-white"
+					initial={{ opacity: 0, y: 50 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1.2 }}
 				>
 					<h1 className="text-5xl font-bold text-center mb-10">EVENTS</h1>
 
 					<div className="mb-16">
-						<div className="bg-label text-2xl font-bold max-w-44 py-4 px-6 rounded-r-full w-auto">
+						<div className="bg-label text-2xl font-bold max-w-44 ml-10 py-4 px-6 rounded-r-full w-auto">
 							UPCOMING
 						</div>
-						<div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
-							<div className="bg-white text-black shadow-lg p-6 rounded-lg">
-								<h2 className="text-2xl font-bold mb-4">Hello World!</h2>
-								<p className="text-gray-600 mb-4">Welcome to CSE</p>
-								<Link href="https://www.google.com">
-									<Image
-										src="/images/contact4.png"
-										alt="Event Image"
-										width={100}
-										height={100}
-									/>
-								</Link>
-								<div className="mt-4 flex items-center space-x-2">
-									<Image
-										src="/images/date.png"
-										alt="Date"
-										width={24}
-										height={24}
-									/>
-									<span className="text-gray-700">9 Sept 2024</span>
-								</div>
-								<div className="mt-2 flex items-center space-x-2">
-									<Image
-										src="/images/time.png"
-										alt="Time"
-										width={24}
-										height={24}
-									/>
-									<span className="text-gray-700">12:30 - 13:30</span>
-								</div>
-							</div>
+						<div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
+							{[1].map((_, idx) => (
+								<motion.div
+									key={idx}
+									className="bg-white text-black shadow-lg ml-10 p-6 rounded-lg"
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.5, delay: idx * 0.2 }}
+								>
+									<h2 className="text-2xl font-bold mb-4">Hello World!</h2>
+									<p className="text-gray-600 mb-4">Welcome to CSE</p>
+									<Link href="https://www.google.com">
+										<Image
+											src="/images/contact4.png"
+											alt="Event Image"
+											width={100}
+											height={100}
+										/>
+									</Link>
+									<div className="mt-4 flex items-center space-x-2">
+										<Image
+											src="/images/date.png"
+											alt="Date"
+											width={24}
+											height={24}
+										/>
+										<span className="text-gray-700">9 Sept 2024</span>
+									</div>
+									<div className="mt-2 flex items-center space-x-2">
+										<Image
+											src="/images/time.png"
+											alt="Time"
+											width={24}
+											height={24}
+										/>
+										<span className="text-gray-700">12:30 - 13:30</span>
+									</div>
+								</motion.div>
+							))}
 						</div>
 					</div>
 
 					<div className="mb-16">
-						<div className="bg-label text-2xl font-bold max-w-28 py-4 px-6 rounded-r-full w-auto">
+						<div className="bg-label text-2xl font-bold max-w-28 ml-10 py-4 px-6 rounded-r-full w-auto">
 							PAST
 						</div>
-						<div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
-							<div className="bg-white text-black shadow-lg p-6 rounded-lg">
-								<h2 className="text-2xl font-bold mb-4">
-									Past Event: CSE Workshop
-								</h2>
-								<p className="text-gray-600 mb-4">
-									An insightful workshop on AI and ML.
-								</p>
-								<Link href="https://www.google.com">
-									<Image
-										src="/images/contact4.png"
-										alt="Event Image"
-										width={100}
-										height={100}
-									/>
-								</Link>
-								<div className="mt-4 flex items-center space-x-2">
-									<Image
-										src="/images/date.png"
-										alt="Date"
-										width={24}
-										height={24}
-									/>
-									<span className="text-gray-700">15 Aug 2024</span>
-								</div>
-								<div className="mt-2 flex items-center space-x-2">
-									<Image
-										src="/images/time.png"
-										alt="Time"
-										width={24}
-										height={24}
-									/>
-									<span className="text-gray-700">14:00 - 15:00</span>
-								</div>
-							</div>
+						<div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
+							{[1].map((_, idx) => (
+								<motion.div
+									key={idx}
+									className="bg-white text-black shadow-lg ml-10 p-6 rounded-lg"
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.5, delay: idx * 0.2 }}
+								>
+									<h2 className="text-2xl font-bold mb-4">
+										Past Event: Hello World!
+									</h2>
+									<p className="text-gray-600 mb-4">Welcome to CSE.</p>
+									<Link href="https://www.google.com">
+										<Image
+											src="/images/contact4.png"
+											alt="Event Image"
+											width={100}
+											height={100}
+										/>
+									</Link>
+									<div className="mt-4 flex items-center space-x-2">
+										<Image
+											src="/images/date.png"
+											alt="Date"
+											width={24}
+											height={24}
+										/>
+										<span className="text-gray-700">9 Sept 2024</span>
+									</div>
+									<div className="mt-2 flex items-center space-x-2">
+										<Image
+											src="/images/time.png"
+											alt="Time"
+											width={24}
+											height={24}
+										/>
+										<span className="text-gray-700">12:30 - 13:30</span>
+									</div>
+								</motion.div>
+							))}
 						</div>
 					</div>
-				</section>
+				</motion.section>
 
-				<section
+				<motion.section
 					id="team"
-					className="bg-primary min-h-screen py-10 text-white text-center"
+					className="bg-primary p-20 text-white text-center"
+					initial={{ opacity: 0, y: 50 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1.2 }}
 				>
-					<hr className="border-t-2 border-white w-1/3 mx-auto mb-6" />
-					<h1 className="text-5xl font-bold mb-10">MEET THE TEAM</h1>
+					<h1 className="text-4xl font-bold mb-10">MEET THE TEAM</h1>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 						{[
 							{
@@ -195,38 +240,40 @@ export default function Home() {
 								style: "mr-10",
 							},
 						].map((teamMember, idx) => (
-							<div
+							<motion.div
 								key={idx}
 								className={`bg-white text-black rounded-lg shadow-md p-6 ${teamMember.style}`}
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.5, delay: idx * 0.2 }}
 							>
 								<Image
 									src="/images/team.png"
 									alt={teamMember.name}
-									width={150}
-									height={150}
+									width={70}
+									height={70}
 									className="rounded-full mx-auto"
 								/>
 								<h2 className="text-2xl font-bold mt-4">{teamMember.name}</h2>
 								<h3 className="text-lg text-gray-500">{teamMember.title}</h3>
 								<p className="text-gray-600 mt-2">{teamMember.description}</p>
-							</div>
+							</motion.div>
 						))}
 					</div>
 
 					<div className="mt-16 text-center">
-						<hr className="border-t-2 border-white w-1/3 mx-auto mt-28 mb-6" />
-						<h1 className="text-5xl font-bold mb-8">CORE TEAM LEADERS</h1>
+						<h1 className="text-4xl font-bold mb-8">CORE TEAM LEADERS</h1>
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 							{[
 								{
 									name: "Hunzalah Bhatti",
 									title: "Tech Guru",
 									description:
-										"Senior CS student who loves learning about web3.0 and Cybersecurity",
+										"Senior CS student with a passion for security and cloud",
 									style: "ml-10",
 								},
 								{
-									name: "Abdallah Irihemeh",
+									name: "Abdallah Irhimeh",
 									title: "Event Manager",
 									description:
 										"Final year student who gets things done on time and will be super buff",
@@ -235,31 +282,40 @@ export default function Home() {
 									name: "Faseeh Nawaz",
 									title: "Head of Creative Endeavour",
 									description:
-										"Final year Cybersecurity/CS student who loves graphic designing and empowering the youth",
+										"Final year CS student who loves graphic designing and empowering the youth",
 									style: "mr-10",
 								},
 							].map((leader, idx) => (
-								<div
+								<motion.div
 									key={idx}
 									className={`bg-white text-black rounded-lg shadow-md p-6 ${leader.style}`}
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.5, delay: idx * 0.2 }}
 								>
 									<Image
 										src="/images/team.png"
 										alt={leader.name}
-										width={150}
-										height={150}
+										width={70}
+										height={70}
 										className="rounded-full mx-auto"
 									/>
 									<h2 className="text-2xl font-bold mt-4">{leader.name}</h2>
 									<h3 className="text-lg text-gray-500">{leader.title}</h3>
 									<p className="text-gray-600 mt-2">{leader.description}</p>
-								</div>
+								</motion.div>
 							))}
 						</div>
 					</div>
-				</section>
+				</motion.section>
 
-				<section id="contact" className="bg-primary py-10 text-white">
+				<motion.section
+					id="contact"
+					className="bg-primary py-28 text-white"
+					initial={{ opacity: 0, y: 50 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1.2 }}
+				>
 					<h1 className="text-5xl font-bold text-center mt-10 mb-10">
 						GET IN TOUCH
 					</h1>
@@ -269,13 +325,18 @@ export default function Home() {
 					</p>
 
 					<div className="mt-10 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-10 justify-center">
-						<div className="flex flex-col items-center space-y-4">
+						<div className="flex flex-col items-center space-y-4 mt-20">
 							{[
 								{ src: "/images/contact1.png", label: "acm@qu.edu.qa" },
-								{ src: "/images/contact2.png", label: "@acmatqu" },
-								{ src: "/images/contact3.png", label: "idkwhattoput" },
+								{ src: "/images/contact2.png", label: "@acm@qu" },
 							].map((contact, idx) => (
-								<div key={idx} className="flex items-center space-x-4">
+								<motion.div
+									key={idx}
+									className="flex items-center space-x-4"
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.5, delay: idx * 0.2 }}
+								>
 									<Image
 										src={contact.src}
 										alt={contact.label}
@@ -283,11 +344,16 @@ export default function Home() {
 										height={50}
 									/>
 									<span className="text-lg">{contact.label}</span>
-								</div>
+								</motion.div>
 							))}
 						</div>
 
-						<div className="bg-white text-black p-8 max-w-[800px] rounded-lg shadow-lg">
+						<motion.div
+							className="bg-white text-black p-8 max-w-[800px] rounded-lg shadow-lg"
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.5, delay: 0.6 }}
+						>
 							<form
 								action="https://formspree.io/f/mgvwpkga"
 								method="POST"
@@ -320,20 +386,16 @@ export default function Home() {
 									Submit
 								</button>
 							</form>
-						</div>
+						</motion.div>
 					</div>
-				</section>
+				</motion.section>
+			</motion.main>
 
-				<section
-					id="gallery"
-					className="py-10 bg-primary text-white text-center"
-				>
-					<h1 className="text-5xl font-bold mt-10">GALLERY</h1>
-					<p className="text-lg text-gray-200 mt-4">
-						A collection of photos from our past events.
-					</p>
-				</section>
-			</main>
+			<footer className="bg-black text-white text-center py-4">
+				<p>
+					© 2024 Association for Computing Machinery, Qatar University Chapter
+				</p>
+			</footer>
 		</>
 	);
 }

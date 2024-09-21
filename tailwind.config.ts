@@ -15,7 +15,7 @@ const config: Config = {
 				label: "#9aa3a1",
 			},
 			fontFamily: {
-				sans: ["Poppins", "sans-serif"], // Add Poppins as the default sans-serif font
+				sans: ["Poppins", "sans-serif"],
 			},
 		},
 	},
