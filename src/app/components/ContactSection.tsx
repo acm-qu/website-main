@@ -5,7 +5,7 @@ export default function ContactSection() {
 	return (
 		<motion.section
 			id="contact"
-			className="bg-primary py-28 text-white"
+			className="bg-primary top-down-gradient py-28 text-white"
 			initial={{ opacity: 0, y: 50 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 1.2 }}

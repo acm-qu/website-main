@@ -6,7 +6,7 @@ export default function MissionSection() {
 	return (
 		<motion.section
 			id="mission"
-			className="bg-primary min-h-screen px-10 py-10 items-center"
+			className="bg-primary down-top-gradient min-h-screen px-10 py-10 items-center"
 			initial={{ opacity: 0, y: 50 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 1.2 }}

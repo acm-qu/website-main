@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function MainSection() {
 	return (
-		<section id="about" className="main-page min-h-[700px]">
+		<section id="about" className="top-down-gradient min-h-[700px]">
 			<div className="flex">
 				<motion.h1
 					initial={{ x: -100, opacity: 0 }}

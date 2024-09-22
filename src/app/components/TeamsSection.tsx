@@ -6,7 +6,7 @@ export default function TeamsSection() {
 	return (
 		<motion.section
 			id="team"
-			className="bg-primary p-20 text-white text-center"
+			className="bg-primary down-top-gradient p-20 text-white text-center"
 			initial={{ opacity: 0, y: 50 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 1.2 }}
@@ -35,10 +35,13 @@ export default function TeamsSection() {
 				].map((teamMember, idx) => (
 					<motion.div
 						key={idx}
-						className={`bg-white text-black rounded-lg shadow-md p-6 ${teamMember.style}`}
+						className={`bg-white text-black rounded-lg shadow-2xl p-6 ${teamMember.style}`}
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: idx * 0.2 }}
+						transition={{ duration: 0.5 }}
+						whileHover={{
+							scale: 1.05,
+						}}
 					>
 						<Image
 							src="/images/team.png"
@@ -81,10 +84,13 @@ export default function TeamsSection() {
 					].map((leader, idx) => (
 						<motion.div
 							key={idx}
-							className={`bg-white text-black rounded-lg shadow-md p-6 ${leader.style}`}
+							className={`bg-white text-black rounded-lg shadow-2xl p-6 ${leader.style}`}
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: idx * 0.2 }}
+							transition={{ duration: 0.5 }}
+							whileHover={{
+								scale: 1.05,
+							}}
 						>
 							<Image
 								src="/images/team.png"

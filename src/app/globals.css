@@ -26,7 +26,10 @@ body {
   }
 }
 
-.main-page {
-  background: linear-gradient(180deg, #134150, #2f3030);
-  background-attachment: fixed;
+.top-down-gradient {
+  background: linear-gradient(180deg, #134150, #036980);
+}
+
+.down-top-gradient {
+  background: linear-gradient(180deg, #036980, #134150);
 }

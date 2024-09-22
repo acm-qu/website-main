@@ -6,7 +6,7 @@ export default function EventsSection() {
 	return (
 		<motion.section
 			id="events"
-			className="bg-primary min-h-screen py-10 text-white"
+			className="bg-primary top-down-gradient min-h-screen py-10 text-white"
 			initial={{ opacity: 0, y: 50 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 1.2 }}
@@ -21,10 +21,11 @@ export default function EventsSection() {
 					{[1].map((_, idx) => (
 						<motion.div
 							key={idx}
-							className="bg-white text-black shadow-lg ml-10 p-6 rounded-lg"
+							className="bg-white text-black shadow-2xl ml-10 p-6 rounded-lg"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: idx * 0.2 }}
+							whileHover={{ scale: 1.05 }}
 						>
 							<h2 className="text-2xl font-bold mb-4">Hello World!</h2>
 							<p className="text-gray-600 mb-4">Welcome to CSE</p>
@@ -67,10 +68,11 @@ export default function EventsSection() {
 					{[1].map((_, idx) => (
 						<motion.div
 							key={idx}
-							className="bg-white text-black shadow-lg ml-10 p-6 rounded-lg"
+							className="bg-white text-black shadow-2xl ml-10 p-6 rounded-lg"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: idx * 0.2 }}
+							whileHover={{ scale: 1.05 }}
 						>
 							<h2 className="text-2xl font-bold mb-4">
 								Past Event: Hello World!
