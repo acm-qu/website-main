@@ -11,23 +11,27 @@ export default function EventsSection() {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 1.2 }}
 		>
-			<h1 className="text-5xl font-bold text-center mb-10">EVENTS</h1>
+			<h1 className="text-4xl md:text-5xl font-bold text-center mb-10">
+				EVENTS
+			</h1>
 
 			<div className="mb-16">
-				<div className="bg-label text-2xl font-bold max-w-44 ml-10 py-4 px-6 rounded-r-full w-auto">
+				<div className="bg-label text-xl md:text-2xl font-bold max-w-44 ml-4 md:ml-10 py-4 px-6 rounded-r-full w-auto">
 					UPCOMING
 				</div>
-				<div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
+				<div className="mt-10 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-10">
 					{[1].map((_, idx) => (
 						<motion.div
 							key={idx}
-							className="bg-white text-black shadow-2xl ml-10 p-6 rounded-lg"
+							className="bg-white text-black shadow-2xl md:ml-10 p-6 rounded-lg"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: idx * 0.2 }}
 							whileHover={{ scale: 1.05 }}
 						>
-							<h2 className="text-2xl font-bold mb-4">Hello World!</h2>
+							<h2 className="text-xl md:text-2xl font-bold mb-4">
+								Hello World!
+							</h2>
 							<p className="text-gray-600 mb-4">Welcome to CSE</p>
 							<Link href="https://www.google.com">
 								<Image
@@ -61,20 +65,20 @@ export default function EventsSection() {
 			</div>
 
 			<div className="mb-16">
-				<div className="bg-label text-2xl font-bold max-w-28 ml-10 py-4 px-6 rounded-r-full w-auto">
+				<div className="bg-label text-xl md:text-2xl font-bold max-w-28 ml-4 md:ml-10 py-4 px-6 rounded-r-full w-auto">
 					PAST
 				</div>
-				<div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
+				<div className="mt-10 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-10">
 					{[1].map((_, idx) => (
 						<motion.div
 							key={idx}
-							className="bg-white text-black shadow-2xl ml-10 p-6 rounded-lg"
+							className="bg-white text-black shadow-2xl md:ml-10 p-6 rounded-lg"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: idx * 0.2 }}
 							whileHover={{ scale: 1.05 }}
 						>
-							<h2 className="text-2xl font-bold mb-4">
+							<h2 className="text-xl md:text-2xl font-bold mb-4">
 								Past Event: Hello World!
 							</h2>
 							<p className="text-gray-600 mb-4">Welcome to CSE.</p>
