@@ -111,7 +111,7 @@ export function Navbar() {
 					<div className="flex-shrink-0 flex items-center">
 						<Link href="/">
 							<Image
-								src="/images/small-logo.jpeg"
+								src="images/small-logo.jpeg"
 								alt="Logo"
 								className="rounded-full"
 								width={60}

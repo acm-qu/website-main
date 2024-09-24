@@ -22,7 +22,7 @@ export default function MissionSection() {
 					for students passionate about technology.
 				</p>
 				<Image
-					src="/images/img.png"
+					src="images/img.png"
 					alt="Mission Logo"
 					width={300}
 					height={300}

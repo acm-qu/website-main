@@ -46,7 +46,7 @@ export default function TeamsSection() {
 						}}
 					>
 						<Image
-							src="/images/team.png"
+							src="images/team.png"
 							alt={teamMember.name}
 							width={70}
 							height={70}
@@ -105,7 +105,7 @@ export default function TeamsSection() {
 							}}
 						>
 							<Image
-								src="/images/team.png"
+								src="images/team.png"
 								alt={leader.name}
 								width={70}
 								height={70}

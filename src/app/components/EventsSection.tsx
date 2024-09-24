@@ -35,7 +35,7 @@ export default function EventsSection() {
 							<p className="text-gray-600 mb-4">Welcome to CSE</p>
 							<Link href="https://www.google.com">
 								<Image
-									src="/images/contact4.png"
+									src="images/contact4.png"
 									alt="Event Image"
 									width={100}
 									height={100}
@@ -43,7 +43,7 @@ export default function EventsSection() {
 							</Link>
 							<div className="mt-4 flex items-center space-x-2">
 								<Image
-									src="/images/date.png"
+									src="images/date.png"
 									alt="Date"
 									width={24}
 									height={24}
@@ -52,7 +52,7 @@ export default function EventsSection() {
 							</div>
 							<div className="mt-2 flex items-center space-x-2">
 								<Image
-									src="/images/time.png"
+									src="images/time.png"
 									alt="Time"
 									width={24}
 									height={24}
@@ -84,7 +84,7 @@ export default function EventsSection() {
 							<p className="text-gray-600 mb-4">Welcome to CSE.</p>
 							<Link href="https://www.google.com">
 								<Image
-									src="/images/contact4.png"
+									src="images/contact4.png"
 									alt="Event Image"
 									width={100}
 									height={100}
@@ -92,7 +92,7 @@ export default function EventsSection() {
 							</Link>
 							<div className="mt-4 flex items-center space-x-2">
 								<Image
-									src="/images/date.png"
+									src="images/date.png"
 									alt="Date"
 									width={24}
 									height={24}
@@ -101,7 +101,7 @@ export default function EventsSection() {
 							</div>
 							<div className="mt-2 flex items-center space-x-2">
 								<Image
-									src="/images/time.png"
+									src="images/time.png"
 									alt="Time"
 									width={24}
 									height={24}

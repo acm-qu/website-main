@@ -20,7 +20,7 @@ export default function MainSection() {
 					transition={{ duration: 1.2, delay: 0.5 }}
 				>
 					<Image
-						src="/images/img.png"
+						src="images/img.png"
 						alt="Logo"
 						width={600}
 						height={600}
