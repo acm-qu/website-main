@@ -82,7 +82,7 @@ export function ContactForm() {
 					</div>
 				</CardContent>
 				<CardFooter>
-					<Button type="submit" className="bg-primary w-full">
+					<Button type="submit" className="bg-secondary w-full">
 						Send Message
 					</Button>
 				</CardFooter>
