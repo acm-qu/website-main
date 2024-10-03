@@ -73,20 +73,20 @@ export default function TeamsSection() {
 					{[
 						{
 							name: "Hunzalah Bhatti",
-							title: "Tech Guru",
+							title: "Technical Lead",
 							description:
 								"Senior CS student with a passion for security and cloud",
 							style: "ml-10",
 						},
 						{
 							name: "Abdallah Irhimeh",
-							title: "Event Manager",
+							title: "Events Lead",
 							description:
 								"Final year student who gets things done on time and will be super buff",
 						},
 						{
 							name: "Faseeh Nawaz",
-							title: "Head of Creative Endeavour",
+							title: "Creative Lead",
 							description:
 								"Final year CS student who loves graphic designing and empowering the youth",
 							style: "mr-10",
