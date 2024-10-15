@@ -43,39 +43,6 @@ export default function ContactSection() {
 						</motion.div>
 					))}
 				</div>
-
-				{/* <form
-						action="https://formspree.io/f/mgvwpkga"
-						method="POST"
-						className="space-y-4"
-					>
-						<input
-							type="text"
-							name="name"
-							placeholder="Name"
-							className="w-full px-4 py-2 border rounded-md"
-							required
-						/>
-						<input
-							type="email"
-							name="email"
-							placeholder="Email"
-							className="w-full px-4 py-2 border rounded-md"
-							required
-						/>
-						<textarea
-							name="message"
-							placeholder="Message"
-							className="w-full px-4 py-2 border rounded-md"
-							required
-						></textarea>
-						<button
-							type="submit"
-							className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md w-full md:w-auto"
-						>
-							Submit
-						</button>
-					</form> */}
 				<ContactForm />
 			</div>
 		</motion.section>

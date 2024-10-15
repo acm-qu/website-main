@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,6 +20,7 @@ export function ContactForm() {
 		email: "",
 		message: "",
 	});
+	const formRef = useRef<HTMLFormElement>(null);
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,9 +32,19 @@ export function ContactForm() {
 		}));
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		console.log("Form submitted:", formData);
+
+		const form = formRef.current;
+		if (form) {
+			form.submit();
+		}
+
+		setFormData({
+			name: "",
+			email: "",
+			message: "",
+		});
 	};
 
 	return (
@@ -44,7 +55,12 @@ export function ContactForm() {
 					Send us a message and we will get back to you soon.
 				</CardDescription>
 			</CardHeader>
-			<form onSubmit={handleSubmit}>
+			<form
+				ref={formRef}
+				action="https://formspree.io/f/xdkooegk"
+				method="POST"
+				onSubmit={handleSubmit}
+			>
 				<CardContent className="space-y-4">
 					<div className="space-y-2">
 						<Label htmlFor="name">Name</Label>
