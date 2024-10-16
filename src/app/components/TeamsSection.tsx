@@ -19,7 +19,7 @@ export default function TeamsSection() {
 						title: "President",
 						description:
 							"Senior CE student with a passion for innovation through ML",
-						style: "ml-10",
+						style: "md:ml-10",
 					},
 					{
 						name: "Anas Rustom",
@@ -30,7 +30,7 @@ export default function TeamsSection() {
 						name: "Sara Ali",
 						title: "Secretary",
 						description: "Junior CE student interested in AI and ML",
-						style: "mr-10",
+						style: "md:mr-10",
 					},
 				].map((teamMember, idx) => (
 					<motion.div
@@ -76,7 +76,7 @@ export default function TeamsSection() {
 							title: "Technical Lead",
 							description:
 								"Senior CS student with a passion for security and cloud",
-							style: "ml-10",
+							style: "md:ml-10",
 						},
 						{
 							name: "Abdallah Irhimeh",
@@ -89,7 +89,7 @@ export default function TeamsSection() {
 							title: "Creative Lead",
 							description:
 								"Final year CS student who loves graphic designing and empowering the youth",
-							style: "mr-10",
+							style: "md:mr-10",
 						},
 					].map((leader, idx) => (
 						<motion.div
