@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaInstagram, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { ContactForm } from "@/components/contact-form";
 
@@ -20,27 +21,55 @@ export default function ContactSection() {
 			</p>
 
 			<div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-10 justify-center">
-				<div className="flex flex-col items-center space-y-6 md:space-y-4 mt-0 md:mt-20">
+				<div className="flex flex-col items-start space-y-6 md:space-y-8 mt-0 md:mt-20">
 					{[
-						{ src: "/images/contact1.png", label: "acm@qu.edu.qa" },
-						{ src: "/images/contact2.png", label: "@acm@qu" },
+						{
+							src: "/images/engage.png",
+							label: "ACM Student Chapter - QU Engage",
+							link: "https://quqa.campuslabs.com/engage/organization/acm",
+						},
+						{
+							icon: <FaLinkedin className="text-2xl md:text-3xl" />,
+							label: "ACM Student Chapter @ QU",
+							link: "http://www.linkedin.com/company/acm-qu",
+						},
+						{
+							icon: <FaInstagram className="text-2xl md:text-3xl" />,
+							label: "@acm.qu",
+							link: "https://instagram.com/acm.qu",
+						},
+						{
+							icon: <FaEnvelope className="text-2xl md:text-3xl" />,
+							label: "acm@qu.edu.qa",
+							link: "mailto:acm@qu.edu.qa",
+						},
 					].map((contact, idx) => (
-						<motion.div
+						<motion.a
 							key={idx}
-							className="flex items-center md:space-x-4"
+							href={contact.link}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex items-center space-x-4"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: idx * 0.2 }}
 						>
-							<Image
-								src={contact.src}
-								alt={contact.label}
-								width={40}
-								height={40}
-								className="md:w-[50px] md:h-[50px]"
-							/>
+							<div className="w-12 flex-shrink-0 flex items-center justify-center">
+								{contact.icon ? (
+									contact.icon
+								) : (
+									<Image
+										src={contact.src}
+										alt={contact.label}
+										width={40}
+										height={40}
+										className="w-8 h-8"
+									/>
+								)}
+							</div>
+							{/* Label */}
 							<span className="text-sm md:text-lg">{contact.label}</span>
-						</motion.div>
+						</motion.a>
 					))}
 				</div>
 				<ContactForm />

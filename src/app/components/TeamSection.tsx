@@ -12,32 +12,33 @@ export default function TeamsSection() {
 			transition={{ duration: 1.2 }}
 		>
 			<h1 className="text-3xl md:text-4xl font-bold mb-10">MEET THE TEAM</h1>
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
 				{[
 					{
 						name: "Muhsen Khan",
 						title: "President",
 						description:
 							"Senior CE student with a passion for innovation through ML",
-						style: "md:ml-10",
 					},
 					{
 						name: "Anas Rustom",
-						title: "Vice-President",
+						title: "Vice President",
 						description: "CS sophomore working on small, cool projects",
 					},
 					{
-						name: "Sara Ali",
-						title: "Secretary",
+						name: "Sara Metwaly",
+						title: "Vice President",
 						description: "Junior CE student interested in AI and ML",
-						style: "md:mr-10",
+					},
+					{
+						name: "Mohamed Ali",
+						title: "Treasurer",
+						description: "Junior CE student interested in AI and ML",
 					},
 				].map((teamMember, idx) => (
 					<motion.div
 						key={idx}
-						className={`bg-white text-black rounded-lg shadow-2xl p-6 ${
-							teamMember.style || ""
-						}`}
+						className="bg-white text-black rounded-lg shadow-2xl p-6"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
@@ -69,34 +70,24 @@ export default function TeamsSection() {
 				<h1 className="text-3xl md:text-4xl font-bold mb-8">
 					CORE TEAM LEADERS
 				</h1>
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
 					{[
 						{
 							name: "Hunzalah Bhatti",
 							title: "Technical Lead",
 							description:
 								"Senior CS student with a passion for security and cloud",
-							style: "md:ml-10",
-						},
-						{
-							name: "Abdallah Irhimeh",
-							title: "Events Lead",
-							description:
-								"Final year student who gets things done on time and will be super buff",
 						},
 						{
 							name: "Faseeh Nawaz",
 							title: "Creative Lead",
 							description:
 								"Final year CS student who loves graphic designing and empowering the youth",
-							style: "md:mr-10",
 						},
 					].map((leader, idx) => (
 						<motion.div
 							key={idx}
-							className={`bg-white text-black rounded-lg shadow-2xl p-6 ${
-								leader.style || ""
-							}`}
+							className="bg-white text-black rounded-lg shadow-2xl p-6"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
