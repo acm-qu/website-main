@@ -33,12 +33,12 @@ export default function TeamsSection() {
 					{
 						name: "Sara Metwaly",
 						title: "Vice President",
-						description: "Junior CE student interested in AI and ML",
+						description: "Senior CE student interested in AI and ML",
 					},
 					{
 						name: "Mohamed Ali",
 						title: "Treasurer",
-						description: "Junior CE student interested in AI and ML",
+						description: "Senior CE student interested in AI and ML",
 					},
 				].map((teamMember, idx) => (
 					<motion.div
@@ -46,7 +46,7 @@ export default function TeamsSection() {
 						className="bg-white text-black rounded-lg shadow-2xl p-6"
 						initial={{ opacity: 0, y: 40 }}
 						animate={isInViewSection ? { opacity: 1, y: 0 } : {}}
-						transition={{ duration: 0.8, delay: 0.2 + idx * 0.1 }}
+						transition={{ duration: 0.8, delay: 0.0 + idx * 0.1 }}
 						whileHover={{
 							scale: 1.05,
 						}}
@@ -95,7 +95,7 @@ export default function TeamsSection() {
 							className="bg-white text-black rounded-lg shadow-2xl p-6"
 							initial={{ opacity: 0, y: 40 }}
 							animate={isInViewLeaders ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.8, delay: 0.2 + idx * 0.1 }}
+							transition={{ duration: 0.8, delay: 0.0 + idx * 0.1 }}
 							whileHover={{
 								scale: 1.05,
 							}}
