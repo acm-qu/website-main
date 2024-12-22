@@ -1,16 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import { FaInstagram, FaEnvelope, FaLinkedin } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ContactForm } from "@/components/contact-form";
+import { useRef } from "react";
 
 export default function ContactSection() {
+	const sectionRef = useRef(null);
+	const isInView = useInView(sectionRef, { once: true });
+
 	return (
-		<motion.section
+		<section
+			ref={sectionRef}
 			id="contact"
 			className="bg-primary top-down-gradient px-10 py-16 md:py-28 md:px-16 text-white"
-			initial={{ opacity: 0, y: 50 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 1.2 }}
 		>
 			<h1 className="text-3xl md:text-5xl font-bold text-center mt-6 md:mt-10 mb-6 md:mb-10">
 				GET IN TOUCH
@@ -49,12 +53,12 @@ export default function ContactSection() {
 							href={contact.link}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="flex items-center space-x-4"
+							className="flex items-center space-x-2 md:space-x-4"
 							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: idx * 0.2 }}
+							animate={isInView ? { opacity: 1, y: 0 } : {}}
+							transition={{ duration: 0.8, delay: idx * 0.3 }}
 						>
-							<div className="w-12 flex-shrink-0 flex items-center justify-center">
+							<div className="w-8 md:w-12 flex-shrink-0 flex items-center justify-center">
 								{contact.icon ? (
 									contact.icon
 								) : (
@@ -63,17 +67,24 @@ export default function ContactSection() {
 										alt={contact.label}
 										width={40}
 										height={40}
-										className="w-8 h-8"
+										className="w-6 h-6 md:w-8 md:h-8"
 									/>
 								)}
 							</div>
-							{/* Label */}
 							<span className="text-sm md:text-lg">{contact.label}</span>
 						</motion.a>
 					))}
 				</div>
-				<ContactForm />
+
+				<motion.div
+					className="w-full md:w-1/2"
+					initial={{ opacity: 0, x: 20 }}
+					animate={isInView ? { opacity: 1, x: 0 } : {}}
+					transition={{ duration: 0.8, delay: 0.5 }}
+				>
+					<ContactForm />
+				</motion.div>
 			</div>
-		</motion.section>
+		</section>
 	);
 }

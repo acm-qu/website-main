@@ -1,15 +1,20 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 export default function TeamsSection() {
+	const sectionRef = useRef(null);
+	const leadersRef = useRef(null);
+	const isInViewSection = useInView(sectionRef, { once: true });
+	const isInViewLeaders = useInView(leadersRef, { once: true });
+
 	return (
-		<motion.section
+		<section
+			ref={sectionRef}
 			id="team"
 			className="bg-primary down-top-gradient p-10 md:p-20 text-white text-center"
-			initial={{ opacity: 0, y: 50 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 1.2 }}
 		>
 			<h1 className="text-3xl md:text-4xl font-bold mb-10">MEET THE TEAM</h1>
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
@@ -39,9 +44,9 @@ export default function TeamsSection() {
 					<motion.div
 						key={idx}
 						className="bg-white text-black rounded-lg shadow-2xl p-6"
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
+						initial={{ opacity: 0, y: 40 }}
+						animate={isInViewSection ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.8, delay: 0.2 + idx * 0.1 }}
 						whileHover={{
 							scale: 1.05,
 						}}
@@ -66,7 +71,7 @@ export default function TeamsSection() {
 				))}
 			</div>
 
-			<div className="mt-16 text-center">
+			<div className="mt-16 text-center" ref={leadersRef}>
 				<h1 className="text-3xl md:text-4xl font-bold mb-8">
 					CORE TEAM LEADERS
 				</h1>
@@ -88,9 +93,9 @@ export default function TeamsSection() {
 						<motion.div
 							key={idx}
 							className="bg-white text-black rounded-lg shadow-2xl p-6"
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5 }}
+							initial={{ opacity: 0, y: 40 }}
+							animate={isInViewLeaders ? { opacity: 1, y: 0 } : {}}
+							transition={{ duration: 0.8, delay: 0.2 + idx * 0.1 }}
 							whileHover={{
 								scale: 1.05,
 							}}
@@ -115,6 +120,6 @@ export default function TeamsSection() {
 					))}
 				</div>
 			</div>
-		</motion.section>
+		</section>
 	);
 }

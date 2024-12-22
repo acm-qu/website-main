@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface Event {
 	title: string;
@@ -16,44 +18,57 @@ interface EventListProps {
 	events: Event[];
 }
 
-const EventList: React.FC<EventListProps> = ({ title, events }) => (
-	<div className="mb-16">
-		<div className="bg-label text-xl md:text-2xl font-bold max-w-44 ml-4 md:ml-10 py-4 px-6 rounded-r-full w-auto">
-			{title}
+const EventList: React.FC<EventListProps> = ({ title, events }) => {
+	const listRef = useRef(null);
+	const isInView = useInView(listRef, { once: true });
+
+	return (
+		<div className="mb-16">
+			<div className="bg-label text-xl md:text-2xl font-bold max-w-44 ml-4 md:ml-10 py-4 px-6 rounded-r-full w-auto">
+				{title}
+			</div>
+			<div
+				ref={listRef}
+				className="mt-10 grid grid-cols-1 gap-8 px-6 md:grid-cols-2 lg:grid-cols-3 md:px-10"
+			>
+				{events.map((event, idx) => (
+					<motion.div
+						key={idx}
+						className="bg-white text-black shadow-2xl md:ml-10 p-6 rounded-lg"
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{
+							duration: 0.8,
+							delay: 0.2 + idx * 0.2,
+						}}
+						whileHover={{ scale: 1.05 }}
+					>
+						<h2 className="text-xl md:text-2xl font-bold mb-4">
+							{event.title}
+						</h2>
+						<p className="text-gray-600 mb-4">{event.description}</p>
+						<Link href={event.link} target="_blank" rel="noopener noreferrer">
+							<Image
+								src={event.image}
+								alt="Event Image"
+								width={400}
+								height={400}
+							/>
+						</Link>
+						<div className="mt-4 flex items-center space-x-2">
+							<Image src="images/date.png" alt="Date" width={24} height={24} />
+							<span className="text-gray-700">{event.date}</span>
+						</div>
+						<div className="mt-2 flex items-center space-x-2">
+							<Image src="images/time.png" alt="Time" width={24} height={24} />
+							<span className="text-gray-700">{event.time}</span>
+						</div>
+					</motion.div>
+				))}
+			</div>
 		</div>
-		<div className="mt-10 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-10">
-			{events.map((event, idx) => (
-				<motion.div
-					key={idx}
-					className="bg-white text-black shadow-2xl md:ml-10 p-6 rounded-lg"
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: idx * 0.2 }}
-					whileHover={{ scale: 1.05 }}
-				>
-					<h2 className="text-xl md:text-2xl font-bold mb-4">{event.title}</h2>
-					<p className="text-gray-600 mb-4">{event.description}</p>
-					<Link href={event.link} target="_blank" rel="noopener noreferrer">
-						<Image
-							src={event.image}
-							alt="Event Image"
-							width={400}
-							height={400}
-						/>
-					</Link>
-					<div className="mt-4 flex items-center space-x-2">
-						<Image src="images/date.png" alt="Date" width={24} height={24} />
-						<span className="text-gray-700">{event.date}</span>
-					</div>
-					<div className="mt-2 flex items-center space-x-2">
-						<Image src="images/time.png" alt="Time" width={24} height={24} />
-						<span className="text-gray-700">{event.time}</span>
-					</div>
-				</motion.div>
-			))}
-		</div>
-	</div>
-);
+	);
+};
 
 export default function EventsSection() {
 	const upcomingEvents: Event[] = [
@@ -99,18 +114,15 @@ export default function EventsSection() {
 	];
 
 	return (
-		<motion.section
+		<section
 			id="events"
 			className="bg-primary top-down-gradient min-h-screen py-10 text-white"
-			initial={{ opacity: 0, y: 50 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 1.2 }}
 		>
 			<h1 className="text-4xl md:text-5xl font-bold text-center mb-10">
 				EVENTS
 			</h1>
 			<EventList title="UPCOMING" events={upcomingEvents} />
 			<EventList title="PAST" events={pastEvents} />
-		</motion.section>
+		</section>
 	);
 }
