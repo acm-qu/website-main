@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@fontsource/poppins/400.css";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
 export const metadata: Metadata = {

@@ -31,7 +31,7 @@ export default function MainSection() {
 					className="mt-10 md:mt-0"
 				>
 					<Image
-						src="images/img.png"
+						src="images/acm-logo.png"
 						alt="Logo"
 						width={600}
 						height={600}

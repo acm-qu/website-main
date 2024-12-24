@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { FaCalendar, FaClock } from "react-icons/fa";
 
 interface Event {
 	title: string;
@@ -56,11 +57,11 @@ const EventList: React.FC<EventListProps> = ({ title, events }) => {
 							/>
 						</Link>
 						<div className="mt-4 flex items-center space-x-2">
-							<Image src="images/date.png" alt="Date" width={24} height={24} />
+							<FaCalendar className="text-gray-700" />
 							<span className="text-gray-700">{event.date}</span>
 						</div>
 						<div className="mt-2 flex items-center space-x-2">
-							<Image src="images/time.png" alt="Time" width={24} height={24} />
+							<FaClock className="text-gray-700" />
 							<span className="text-gray-700">{event.time}</span>
 						</div>
 					</motion.div>
@@ -87,7 +88,7 @@ export default function EventsSection() {
 		{
 			title: "CSE Orientation",
 			description:
-				"The goal of the event was to provide attendees with valuable insights into the various opportunities and career paths within CSE, which could help them choose their major or better understand the direction they were already pursuing.",
+				"The event aimed to offer attendees valuable insights into career paths and opportunities in CSE, helping them choose their major or better understand their current direction.",
 			link: "https://www.instagram.com/p/DCbiQMUg8uR/",
 			image: "/images/event1.jpg",
 			date: "9 September 2024",

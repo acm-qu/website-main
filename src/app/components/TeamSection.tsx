@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function TeamsSection() {
 	const sectionRef = useRef(null);
@@ -51,12 +51,10 @@ export default function TeamsSection() {
 							scale: 1.05,
 						}}
 					>
-						<Image
-							src="images/team.png"
-							alt={teamMember.name}
+						<FaUserCircle
 							width={70}
 							height={70}
-							className="rounded-full mx-auto"
+							className="rounded-full mx-auto w-16 h-16"
 						/>
 						<h2 className="text-xl md:text-2xl font-bold mt-4">
 							{teamMember.name}
@@ -100,12 +98,10 @@ export default function TeamsSection() {
 								scale: 1.05,
 							}}
 						>
-							<Image
-								src="images/team.png"
-								alt={leader.name}
+							<FaUserCircle
 								width={70}
 								height={70}
-								className="rounded-full mx-auto"
+								className="rounded-full mx-auto w-16 h-16"
 							/>
 							<h2 className="text-xl md:text-2xl font-bold mt-4">
 								{leader.name}

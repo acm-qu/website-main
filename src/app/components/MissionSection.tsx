@@ -36,7 +36,7 @@ export default function MissionSection() {
 					transition={{ duration: 1.2, delay: 0.5 }}
 				>
 					<Image
-						src="images/img.png"
+						src="images/acm-logo.png"
 						alt="Mission Logo"
 						width={300}
 						height={300}

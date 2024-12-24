@@ -28,7 +28,7 @@ export default function ContactSection() {
 				<div className="flex flex-col items-start space-y-6 md:space-y-8 mt-0 md:mt-20">
 					{[
 						{
-							src: "/images/engage.png",
+							src: "/images/qu-engage-logo.png",
 							label: "ACM Student Chapter - QU Engage",
 							link: "https://quqa.campuslabs.com/engage/organization/acm",
 						},
