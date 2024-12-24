@@ -1,14 +1,31 @@
 "use client";
-
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaUserCircle } from "react-icons/fa";
 
 export default function TeamsSection() {
 	const sectionRef = useRef(null);
 	const leadersRef = useRef(null);
+
 	const isInViewSection = useInView(sectionRef, { once: true });
 	const isInViewLeaders = useInView(leadersRef, { once: true });
+
+	const [hasAnimatedSection, setHasAnimatedSection] = useState(false);
+	const [hasAnimatedLeaders, setHasAnimatedLeaders] = useState(false);
+
+	useEffect(() => {
+		if (isInViewSection && !hasAnimatedSection) {
+			setHasAnimatedSection(true);
+		}
+		if (isInViewLeaders && !hasAnimatedLeaders) {
+			setHasAnimatedLeaders(true);
+		}
+	}, [
+		isInViewSection,
+		isInViewLeaders,
+		hasAnimatedSection,
+		hasAnimatedLeaders,
+	]);
 
 	return (
 		<section
@@ -46,16 +63,15 @@ export default function TeamsSection() {
 						className="bg-white text-black rounded-lg shadow-2xl p-6"
 						initial={{ opacity: 0, y: 40 }}
 						animate={isInViewSection ? { opacity: 1, y: 0 } : {}}
-						transition={{ duration: 0.8, delay: 0.0 + idx * 0.1 }}
+						transition={{
+							duration: 1.0,
+							delay: hasAnimatedSection ? 0 : idx * 0.5,
+						}}
 						whileHover={{
 							scale: 1.05,
 						}}
 					>
-						<FaUserCircle
-							width={70}
-							height={70}
-							className="rounded-full mx-auto w-16 h-16"
-						/>
+						<FaUserCircle className="rounded-full mx-auto w-16 h-16" />
 						<h2 className="text-xl md:text-2xl font-bold mt-4">
 							{teamMember.name}
 						</h2>
@@ -93,16 +109,15 @@ export default function TeamsSection() {
 							className="bg-white text-black rounded-lg shadow-2xl p-6"
 							initial={{ opacity: 0, y: 40 }}
 							animate={isInViewLeaders ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.8, delay: 0.0 + idx * 0.1 }}
+							transition={{
+								duration: 1.0,
+								delay: hasAnimatedLeaders ? 0 : idx * 0.5,
+							}}
 							whileHover={{
 								scale: 1.05,
 							}}
 						>
-							<FaUserCircle
-								width={70}
-								height={70}
-								className="rounded-full mx-auto w-16 h-16"
-							/>
+							<FaUserCircle className="rounded-full mx-auto w-16 h-16" />
 							<h2 className="text-xl md:text-2xl font-bold mt-4">
 								{leader.name}
 							</h2>

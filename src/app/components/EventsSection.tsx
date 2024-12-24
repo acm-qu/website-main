@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FaCalendar, FaClock } from "react-icons/fa";
 
 interface Event {
@@ -22,6 +22,13 @@ interface EventListProps {
 const EventList: React.FC<EventListProps> = ({ title, events }) => {
 	const listRef = useRef(null);
 	const isInView = useInView(listRef, { once: true });
+	const [hasAnimated, setHasAnimated] = useState(false);
+
+	useEffect(() => {
+		if (isInView && !hasAnimated) {
+			setHasAnimated(true);
+		}
+	}, [isInView, hasAnimated]);
 
 	return (
 		<div className="mb-16">
@@ -40,7 +47,7 @@ const EventList: React.FC<EventListProps> = ({ title, events }) => {
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 						transition={{
 							duration: 0.8,
-							delay: 0.0 + idx * 0.2,
+							delay: hasAnimated ? 0 : idx * 0.5,
 						}}
 						whileHover={{ scale: 1.05 }}
 					>

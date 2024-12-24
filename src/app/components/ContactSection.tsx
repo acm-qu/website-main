@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { FaInstagram, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
@@ -56,7 +55,7 @@ export default function ContactSection() {
 							className="flex items-center space-x-2 md:space-x-4"
 							initial={{ opacity: 0, y: 20 }}
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.8, delay: idx * 0.3 }}
+							transition={{ duration: 1.0, delay: 0.5 + idx * 0.5 }}
 						>
 							<div className="w-8 md:w-12 flex-shrink-0 flex items-center justify-center">
 								{contact.icon ? (
@@ -80,7 +79,7 @@ export default function ContactSection() {
 					className="w-full md:w-1/2"
 					initial={{ opacity: 0, x: 20 }}
 					animate={isInView ? { opacity: 1, x: 0 } : {}}
-					transition={{ duration: 0.8, delay: 0.5 }}
+					transition={{ duration: 1.0, delay: 0.5 }}
 				>
 					<ContactForm />
 				</motion.div>
