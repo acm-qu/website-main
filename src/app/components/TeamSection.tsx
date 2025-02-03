@@ -34,28 +34,27 @@ export default function TeamsSection() {
 			className="bg-primary down-top-gradient p-10 md:p-20 text-white text-center"
 		>
 			<h1 className="text-3xl md:text-4xl font-bold mb-10">MEET THE TEAM</h1>
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
 				{[
 					{
 						name: "Muhsen Khan",
 						title: "President",
-						description:
-							"Senior CE student with a passion for innovation through ML",
 					},
 					{
 						name: "Anas Rustom",
 						title: "Vice President",
-						description: "CS sophomore working on small, cool projects",
 					},
 					{
 						name: "Sara Metwaly",
 						title: "Vice President",
-						description: "Senior CE student interested in AI and ML",
+					},
+					{
+						name: "Noor Soueid",
+						title: "Secretary",
 					},
 					{
 						name: "Mohamed Ali",
 						title: "Treasurer",
-						description: "Senior CE student interested in AI and ML",
 					},
 				].map((teamMember, idx) => (
 					<motion.div
@@ -78,9 +77,6 @@ export default function TeamsSection() {
 						<h3 className="text-md md:text-lg text-gray-500">
 							{teamMember.title}
 						</h3>
-						<p className="text-gray-600 mt-2 text-sm md:text-base">
-							{teamMember.description}
-						</p>
 					</motion.div>
 				))}
 			</div>
@@ -94,14 +90,10 @@ export default function TeamsSection() {
 						{
 							name: "Hunzalah Bhatti",
 							title: "Technical Lead",
-							description:
-								"Senior CS student with a passion for security and cloud",
 						},
 						{
 							name: "Faseeh Nawaz",
 							title: "Creative Lead",
-							description:
-								"Final year CS student who loves graphic designing and empowering the youth",
 						},
 					].map((leader, idx) => (
 						<motion.div
@@ -124,9 +116,6 @@ export default function TeamsSection() {
 							<h3 className="text-md md:text-lg text-gray-500">
 								{leader.title}
 							</h3>
-							<p className="text-gray-600 mt-2 text-sm md:text-base">
-								{leader.description}
-							</p>
 						</motion.div>
 					))}
 				</div>
